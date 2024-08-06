@@ -1,4 +1,4 @@
-<?php namespace Notsoweb\LaravelJetstream\Vue\Controllers;
+<?php namespace Notsoweb\LaravelJetstream\Vuejs\Controllers;
 /**
  * @copyright 2024 Notsoweb (https://notsoweb.com) - All rights reserved.
  */
