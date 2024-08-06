@@ -1,0 +1,23 @@
+{
+    "name": "notsoweb/laravel-jetstream-vuejs",
+    "description": "Núcleo de funciones para VUEJS diseñado como complemento para Laravel Jetstream.",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Notsoweb\\LaravelJetstream\\Vuejs\\": "src"
+        },
+        "files": [
+            "src/Helpers/Notsoweb.php"
+        ]
+    },
+    "authors": [
+        {
+            "name": "Moisés Cortés C.",
+            "email": "moises.cortes@notsoweb.com"
+        }
+    ],
+    "require": {
+        "php": "^8.1"
+    }
+}
