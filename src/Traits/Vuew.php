@@ -65,6 +65,14 @@ trait Vuew
     }
 
     /**
+     * Redirección local
+     */
+    public function localRoute($route, $params = [])
+    {
+        return to_route("{$this->vueRoot}.{$route}", $params);
+    }
+
+    /**
      * Convierte vista al formato de vue de inertia
      * 
      * Transforma las palabras con guiones según el estándar de Blade
