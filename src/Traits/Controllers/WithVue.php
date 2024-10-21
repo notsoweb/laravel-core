@@ -101,6 +101,16 @@ trait WithVue
     }
 
     /**
+     * Redirección local
+     * 
+     * Redirección dentro del mismo controlador de vistas, utiliza la raíz del componente.
+     */
+    public function localRoute($route, $params = [])
+    {
+        return to_route("{$this->root}.{$route}", $params);
+    }
+
+    /**
      * Obtener datos globales
      * 
      * Si se declararon datos globales, se obtiene para enviarlos a la vista.
