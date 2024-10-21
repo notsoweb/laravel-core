@@ -5,6 +5,7 @@
 
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Str;
+use stdClass;
 
  /**
  * Crea usuarios seguros
@@ -31,7 +32,7 @@ class UserSecureSupport
      * Esto tiene la finalidad de que las contraseñas generadas en los proyectos sean únicas y que
      * no queden plasmadas en el código.
      */
-    public static function create(string $email, int $length = 12) : Array
+    public static function create(string $email, int $length = 12) : stdClass
     {
         $password = Str::random($length);
  
