@@ -1,4 +1,4 @@
-<?php namespace Notsoweb\LaravelJetstream\Vuejs\Traits;
+<?php namespace Notsoweb\LaravelCore\Traits;
 /**
  * @copyright 2024 Notsoweb (https://notsoweb.com) - All rights reserved.
  */
@@ -56,7 +56,6 @@ trait WithPermission
             'edit',
             'update'
         ]);
-
     }
 
     /**

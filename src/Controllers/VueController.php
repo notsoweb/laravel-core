@@ -1,11 +1,11 @@
-<?php namespace Notsoweb\LaravelJetstream\Vuejs\Controllers;
+<?php namespace Notsoweb\LaravelCore\Controllers;
 /**
  * @copyright 2024 Notsoweb (https://notsoweb.com) - All rights reserved.
  */
 
-use Illuminate\Routing\Controller;
-use Notsoweb\LaravelJetstream\Vuejs\Traits\Vuew;
-use Notsoweb\LaravelJetstream\Vuejs\Traits\WithPermission;
+use App\Http\Controllers\Controller;
+use Notsoweb\LaravelCore\Traits\Controllers\WithVue;
+use Notsoweb\LaravelCore\Traits\WithPermission;
 
 /**
  * Controlador orientado a vue
@@ -17,5 +17,5 @@ use Notsoweb\LaravelJetstream\Vuejs\Traits\WithPermission;
 abstract class VueController extends Controller
 {
     use WithPermission,
-        Vuew;
+        WithVue;
 }
