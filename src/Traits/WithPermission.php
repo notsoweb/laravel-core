@@ -3,9 +3,9 @@
  * @copyright 2024 Notsoweb (https://notsoweb.com) - All rights reserved.
  */
 
- use Illuminate\Routing\Controllers\Middleware;
+use Illuminate\Routing\ControllerMiddlewareOptions;
 
- /**
+/**
  * Permite controlar los permisos de un controlador
  * 
  * Es especialmente util para validar permiso por permiso en los controladores por recursos
@@ -23,17 +23,11 @@ trait WithPermission
     public $rolePermission = 'default';
 
     /**
-     * Middlewares registrados en el controlador
+     * Middlewares registrados
+     *
+     * @var array
      */
     protected $middleware = [];
-
-    /**
-     * Agregar permiso
-     */
-    public function addPermission(string $name, $fn = null)
-    {
-        $this->middleware[] = (new Middleware("permission:{$this->rolePermission}.{$name}"))->only($fn ?? $name);
-    }
 
     /**
      * Permiso de ver la vista principal
@@ -42,7 +36,9 @@ trait WithPermission
      */
     public function withIndexPermission() : void
     {
-        $this->addPermission('index');
+        $this->middleware("permission:{$this->rolePermission}.index")->only([
+            'index'
+        ]);
     }
 
     /**
@@ -52,7 +48,10 @@ trait WithPermission
      */
     public function withCreatePermission() : void
     {
-        $this->addPermission('create', ['create', 'store']);
+        $this->middleware("permission:{$this->rolePermission}.create")->only([
+            'create',
+            'store'
+        ]);
     }
 
     /**
@@ -62,7 +61,10 @@ trait WithPermission
      */
     public function withEditPermission() : void
     {
-        $this->addPermission('edit', ['edit', 'update']);
+        $this->middleware("permission:{$this->rolePermission}.edit")->only([
+            'edit',
+            'update'
+        ]);
     }
 
     /**
@@ -72,7 +74,9 @@ trait WithPermission
      */
     public function withDestroyPermission() : void
     {
-        $this->addPermission('destroy',);
+        $this->middleware("permission:{$this->rolePermission}.destroy")->only([
+            'destroy'
+        ]);
     }
 
     /**
@@ -84,7 +88,7 @@ trait WithPermission
      */
     public function withPermission($name) : void
     {
-        $this->middleware[] = new Middleware("permission:{$this->rolePermission}.{$name}");
+        $this->middleware("permission:{$this->rolePermission}.{$name}");
     }
 
     /**
@@ -96,7 +100,7 @@ trait WithPermission
      */
     public function withOtherPermission($name) : void
     {
-        $this->middleware[] = (new Middleware("permission:{$name}"));
+        $this->middleware("permission:{$name}");
     }
 
     /**
@@ -118,9 +122,30 @@ trait WithPermission
     }
 
     /**
-     * Obtener los middlewares asignados al controlador
+     * Register middleware on the controller.
+     *
+     * @param  \Closure|array|string  $middleware
+     * @param  array  $options
+     * @return \Illuminate\Routing\ControllerMiddlewareOptions
      */
-    public function getMiddleware() : array
+    public function middleware($middleware, array $options = [])
+    {
+        foreach ((array) $middleware as $m) {
+            $this->middleware[] = [
+                'middleware' => $m,
+                'options' => &$options,
+            ];
+        }
+
+        return new ControllerMiddlewareOptions($options);
+    }
+
+    /**
+     * Get the middleware assigned to the controller.
+     *
+     * @return array
+     */
+    public function getMiddleware()
     {
         return $this->middleware;
     }
