@@ -31,7 +31,7 @@ trait WithVue
     /**
      * Retornar vista Vue Inertia
      */
-    public function vue($view, $data = []) : Response
+    public function view($view, $data = []) : Response
     {
         return Inertia::render(
             component: (!empty($this->root))
