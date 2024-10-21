@@ -28,7 +28,7 @@ trait Extended
             $models->push($case->asModel());
         }
 
-        return $models->sortBy($sort);
+        return $models->sortBy($sort)->values();
     }
 
     /**
@@ -45,6 +45,6 @@ trait Extended
             }
         }
 
-        return $models->sortBy($sort);
+        return $models->sortBy($sort)->values();
     }
 }
