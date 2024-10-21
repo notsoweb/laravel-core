@@ -26,7 +26,7 @@ trait RolePermission
         return Permission::create([
             'name' => $code,
             'description' => $description,
-            'type_id' => $type?->id
+            'permission_type_id' => $type?->id
         ]);
     }
     

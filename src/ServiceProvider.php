@@ -59,7 +59,7 @@ class ServiceProvider extends LaravelServiceProvider
     public function registerAbout() : void
     {
         AboutCommand::add('Notsoweb\\LaravelCore', fn () => [
-            'Version' => InstalledVersions::getPrettyVersion('notsoweb/LaravelCore')
+            'Version' => InstalledVersions::getPrettyVersion('notsoweb/laravel-core')
         ]);
     }
 }
