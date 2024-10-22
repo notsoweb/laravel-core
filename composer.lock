@@ -4,8 +4,49 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "c1f4a7d84867e82c143b8db3fe638304",
-    "packages": [],
+    "content-hash": "f1360115bab5aa6ec207b75c278d41e9",
+    "packages": [
+        {
+            "name": "notsoweb/api-response",
+            "version": "1.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/notsoweb/api-response.git",
+                "reference": "83883e3e804cdb82ec0fd1a82469f1d8ccc3490f"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/notsoweb/api-response/zipball/83883e3e804cdb82ec0fd1a82469f1d8ccc3490f",
+                "reference": "83883e3e804cdb82ec0fd1a82469f1d8ccc3490f",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^8.1"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Notsoweb\\ApiResponse\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Moisés Cortés C.",
+                    "email": "moises.cortes@notsoweb.com"
+                }
+            ],
+            "description": "Respuesta para APIs con el estándar Jsend para PHP",
+            "support": {
+                "issues": "https://github.com/notsoweb/api-response/issues",
+                "source": "https://github.com/notsoweb/api-response/tree/1.0.1"
+            },
+            "time": "2024-08-05T04:18:20+00:00"
+        }
+    ],
     "packages-dev": [],
     "aliases": [],
     "minimum-stability": "stable",
@@ -13,7 +54,7 @@
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
-        "php": "^8.1"
+        "php": "^8.2"
     },
     "platform-dev": [],
     "plugin-api-version": "2.6.0"
