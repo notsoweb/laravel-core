@@ -8,16 +8,16 @@
     "packages": [
         {
             "name": "notsoweb/api-response",
-            "version": "1.0.1",
+            "version": "1.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/notsoweb/api-response.git",
-                "reference": "83883e3e804cdb82ec0fd1a82469f1d8ccc3490f"
+                "reference": "037267a97d3c11f47a065b5043c2f0c68c9cc4fe"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/notsoweb/api-response/zipball/83883e3e804cdb82ec0fd1a82469f1d8ccc3490f",
-                "reference": "83883e3e804cdb82ec0fd1a82469f1d8ccc3490f",
+                "url": "https://api.github.com/repos/notsoweb/api-response/zipball/037267a97d3c11f47a065b5043c2f0c68c9cc4fe",
+                "reference": "037267a97d3c11f47a065b5043c2f0c68c9cc4fe",
                 "shasum": ""
             },
             "require": {
@@ -42,9 +42,9 @@
             "description": "Respuesta para APIs con el estándar Jsend para PHP",
             "support": {
                 "issues": "https://github.com/notsoweb/api-response/issues",
-                "source": "https://github.com/notsoweb/api-response/tree/1.0.1"
+                "source": "https://github.com/notsoweb/api-response/tree/1.0.2"
             },
-            "time": "2024-08-05T04:18:20+00:00"
+            "time": "2024-10-24T23:51:34+00:00"
         }
     ],
     "packages-dev": [],
