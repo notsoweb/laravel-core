@@ -21,10 +21,11 @@ trait RolePermission
      * 
      * @param string $code Código del permiso que será usado para programar
      */
-    protected function onPermission(string $code, string $description, $type = null) : Permission
+    protected function onPermission(string $code, string $description, $type = null, $guardName = 'web') : Permission
     {
         return Permission::create([
             'name' => $code,
+            'guard_name' => $guardName,
             'description' => $description,
             'permission_type_id' => $type?->id
         ]);
@@ -33,56 +34,60 @@ trait RolePermission
     /**
      * Permiso tipo Index
      */
-    protected function onIndex($code, $description = 'Mostrar datos', $type = null) : Permission
+    protected function onIndex($code, $description = 'Mostrar datos', $type = null, $guardName = 'web') : Permission
     {
-        return $this->onPermission("{$code}.index", $description, $type);
+        return $this->onPermission("{$code}.index", $description, $type, $guardName);
     }
     
     /**
      * Permiso para crear un registro
      */
-    protected function onCreate($code, $description = "Crear registros", $type = null) : Permission
+    protected function onCreate($code, $description = "Crear registros", $type = null, $guardName = 'web') : Permission
     {
-        return $this->onPermission("{$code}.create", $description, $type);
+        return $this->onPermission("{$code}.create", $description, $type, $guardName);
     }
     
     /**
      * Permiso para editar un registro
      */
-    protected function onEdit($code, $description = "Actualizar registro", $type = null) : Permission
+    protected function onEdit($code, $description = "Actualizar registro", $type = null, $guardName = 'web') : Permission
     {
-        return $this->onPermission("{$code}.edit", $description, $type);
+        return $this->onPermission("{$code}.edit", $description, $type, $guardName);
     }
     
     /**
      * Permiso para eliminar un registro
      */
-    protected function onDestroy($code, $description = "Eliminar registro", $type = null) : Permission
+    protected function onDestroy($code, $description = "Eliminar registro", $type = null, $guardName = 'web') : Permission
     {
-        return $this->onPermission("{$code}.destroy", $description, $type);
+        return $this->onPermission("{$code}.destroy", $description, $type, $guardName);
     }
     
     /**
      * CRUD de permisos
      */
-    protected function onCRUD($code, $type = null) : array
+    protected function onCRUD($code, $type = null, $guardName = 'web') : array
     {
         return [
             $this->onIndex(
                 code: $code,
-                type: $type
+                type: $type,
+                guardName: $guardName
             ),
             $this->onCreate(
                 code: $code,
-                type:$type
+                type: $type,
+                guardName: $guardName
             ),
             $this->onEdit(
                 code: $code,
-                type: $type
+                type: $type,
+                guardName: $guardName
             ),
             $this->onDestroy(
                 code: $code,
-                type: $type
+                type: $type,
+                guardName: $guardName
             )
         ];
     }
