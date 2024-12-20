@@ -24,3 +24,21 @@ if (!function_exists('isEnvironment')) {
         return app()->environment($environment);
     }
 }
+
+if (!function_exists('hasPermission')) {
+    /**
+     * Verificar si el usuario tiene un permiso
+     */
+    function hasPermission(string $permission) {
+        return auth()->user()->hasPermissionTo($permission);
+    }
+}
+
+if (!function_exists('hasRole')) {
+    /**
+     * Verificar si el usuario tiene un rol
+     */
+    function hasRole(string $role) {
+        return auth()->user()->hasRole($role);
+    }
+}
